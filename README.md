@@ -2,7 +2,7 @@
 单页面应用路由实现
 
 ## hash + hashchange事件
-在 url 中, `#` 后面的所有值都被看做是 hash 值，`#` 号后面的值改变不会导致浏览器刷新。我们可以监听 hashchange 事件，然后根据 hash 值，去动态的替换内容，这就可以实现单页面应用的效果。代码如下:
+在 `url` 中, `#` 后面的所有值都被看做是 `hash` 值，`#` 号后面的值改变不会导致浏览器刷新。我们可以监听 `hashchange` 事件，然后根据 `hash` 值，去动态的替换内容，这就可以实现单页面应用的效果。代码如下:
 ```javascript
 /**
  * route类，包括确定根节点和路由表，添加监听事件
@@ -74,12 +74,12 @@ function linkto(e) {
 
 ## history(pushstate | replaceState) + popstate事件
 `pushState` 和 `replaceState`,它们分别可以添加和修改历史记录条目，这些方法通常与 `window.onpopstate` 配合使用
-- pushState(state, '可选title', url) 不填 state 默认保存到当前 url
-  - XMLHttpRequest 对象的 referrer 都会被改变
+- pushState(state, '可选title', url) 不填 `state` 默认保存到当前 `url`
+  - `XMLHttpRequest` 对象的 `referrer` 都会被改变
  
-注意 pushState() 绝对不会触发 hashchange 事件，即使新的URL与旧的URL仅哈希不同也是如此。
+注意 `pushState()` 绝对不会触发 `hashchange` 事件，即使新的 `URL` 与旧的 `URL` 仅哈希不同也是如此。
 
 - replaceState(state, '可选title', url)  区别在于 `replaceState()`  是修改了当前的历史记录项而不是新建一个
  
 - popstate事件
-  - 调用 history.pushState() 或者 history.replaceState() 不会触发 popstate 事件. popstate 事件只会在浏览器某些行为下触发, 比如点击后退、前进按钮(或者在 JavaScript 中调用 history.back()、history.forward()、history.go() 方法).
+  - 调用 `history.pushState()` 或者 `history.replaceState()` 不会触发 `popstate` 事件. `popstate` 事件只会在浏览器某些行为下触发, 比如点击后退、前进按钮(或者在 `JavaScript` 中调用 `history.back()、history.forward()、history.go()` 方法).
