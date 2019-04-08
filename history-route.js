@@ -25,7 +25,7 @@ HistoryRoute.prototype = {
         this.loadRoute(route)
     },
     loadRoute: function (e) {
-        const url = e.path || window.location.pathname
+        const url = e.path || window.location.pathname // 直接取 pathname
         const { component } = this.routes.filter(value => value.path === url)[0]
         this.app.innerHTML = component
     }
