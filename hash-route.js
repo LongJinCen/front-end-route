@@ -12,9 +12,12 @@ HashRoute.prototype = {
         this.routes.push(route)
     },
     pop: function (route) {
-        const url = route || window.location.hash.slice(1)
-        if (route.path === url) {
-            this.redirect('/')
+        if (route.path === '/') return
+        const url = route.path || window.location.hash.slice(1)
+        if (window.location.hash.slice(1) === url) {
+            this.redirect({
+                path: '/'
+            })
         }
         this.routes = this.routes.filter(value => value.path !== route.path)
     },
@@ -22,8 +25,8 @@ HashRoute.prototype = {
         this.loadRoute(route)
     },
     loadRoute: function (route) {
-        const url = route || window.location.hash.slice(1)
-        const component = this.routes.filter(value => value.path === url)
+        const url = route.path || window.location.hash.slice(1)
+        const { component } = this.routes.filter(value => value.path === url)[0]
         this.app.innerHTML = component
     }
 }
