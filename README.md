@@ -73,7 +73,7 @@ function linkto(e) {
 ```
 
 ## history(pushstate | replaceState) + popstate事件
-`pushState` 和 `replaceState`,它们分别可以添加和修改历史记录条目，这些方法通常与 `window.onpopstate` 配合使用
+`pushState` 和 `replaceState`,它们分别可以添加和修改历史记录条目，并定向到新的url, 但是不刷新页面。这些方法通常与 `window.onpopstate` 配合使用
 - pushState(state, '可选title', url) 不填 `state` 默认保存到当前 `url`
   - `XMLHttpRequest` 对象的 `referrer` 都会被改变
  
